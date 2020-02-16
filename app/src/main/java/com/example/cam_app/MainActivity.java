@@ -48,13 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void galleryAddPic() {
-        Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        File f = new File(currentPhotoPath);
-        Uri contentUri = Uri.fromFile(f);
-        mediaScanIntent.setData(contentUri);
-        this.sendBroadcast(mediaScanIntent);
-    }
+
 
     Uri photoURI = null;
 
@@ -91,14 +85,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,data);
         ImageView im = (ImageView) findViewById(R.id.imageView);
         im.setImageURI(photoURI);
-        try {
-            MediaStore.Images.Media.insertImage(getContentResolver(), currentPhotoPath, "syt", "dst");
-        }
-        catch (IOException e)
-        {
 
-        }
-        }
 
 }
 
