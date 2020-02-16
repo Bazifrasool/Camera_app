@@ -22,6 +22,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_ID = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,17 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Save a file: path for use with ACTION_VIEW intents
         currentPhotoPath = image.getAbsolutePath();
-        return image;}
-
-
-
-
+        return image;
+    }
 
 
     Uri photoURI = null;
 
-    public void clicked(View view)
-    {
+    public void clicked(View view) {
         //intent to capture passed.
         Intent capture_image = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (capture_image.resolveActivity(getPackageManager()) != null) {
@@ -76,17 +73,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
         Bitmap bmp_img;
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode,resultCode,data);
+        super.onActivityResult(requestCode, resultCode, data);
         ImageView im = (ImageView) findViewById(R.id.imageView);
         im.setImageURI(photoURI);
 
 
+    }
 }
 
 
